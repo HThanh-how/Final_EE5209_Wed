@@ -1,0 +1,138 @@
+\documentclass[12pt,a4paper]{article}
+
+% ==================== PACKAGES ====================
+\usepackage{fontspec}
+\usepackage[english,vietnamese]{babel}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+
+% ==================== PAGE SETUP ====================
+\geometry{
+    left=3cm,
+    right=2cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% ==================== HYPERREF SETUP ====================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+% ==================== DOCUMENT ====================
+\begin{document}
+
+\selectlanguage{vietnamese}
+
+\title{Câu 1}
+\author{}
+\date{}
+\maketitle
+
+\section*{Câu 1}
+
+\subsection*{a) Tính giá trị các dòng của BJT ở chế độ DC}
+
+Ở chế độ DC, các tụ điện $C_{C1}, C_{C2}$ hở mạch. Nhìn vào sơ đồ, chân Base (B) được nối đất ($V_B = 0$ V). Đây là mạch khuếch đại kiểu Base chung (Common Base) dùng transistor PNP.
+
+\textbf{Tính dòng phát (Emitter current - $I_E$):}
+
+Áp dụng định luật Kirchoff cho vòng từ nguồn $V^+$ xuống Ground qua mối nối E-B:
+
+$$V^+ - I_E R_E - V_{EB} = V_B$$
+
+Thay số ($V_B = 0, V_{EB} = V_{\gamma} = 0.67$ V):
+
+$$10 - I_E(10\text{k}) - 0.67 = 0 \Rightarrow I_E = \frac{10 - 0.67}{10\text{k}} = \mathbf{0.933 \text{ mA}}$$
+
+\textbf{Tính dòng thu (Collector current - $I_C$):}
+
+$$I_C = \alpha I_E = \left( \frac{\beta}{\beta + 1} \right) I_E = \left( \frac{100}{101} \right) \times 0.933 \approx \mathbf{0.924 \text{ mA}}$$
+
+\textbf{Tính dòng cực nền (Base current - $I_B$):}
+
+$$I_B = \frac{I_C}{\beta} = \frac{0.924}{100} = 0.00924 \text{ mA} = \mathbf{9.24 \text{ }\mu\text{A}}$$
+
+\subsection*{b) Vẽ sơ đồ tương đương tín hiệu nhỏ}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/small_signal_cb.png}
+\caption{Sơ đồ tương đương tín hiệu nhỏ mạch khuếch đại BJT Base chung (Common Base)}
+\label{fig:small_signal}
+\end{figure}
+
+Ở chế độ AC (tín hiệu nhỏ):
+\begin{itemize}
+    \item Các tụ điện $C_{C1}, C_{C2}$ coi như ngắn mạch.
+    \item Các nguồn DC ($V^+, V^-$) được nối đất.
+    \item Sử dụng mô hình T-model (rất phù hợp cho mạch Base chung).
+\end{itemize}
+
+\textbf{Mô tả sơ đồ:}
+\begin{itemize}
+    \item Ngõ vào ($v_i$): Nối vào cực E. Điện trở $R_E$ lúc này mắc song song với ngõ vào (nối từ E xuống đất).
+    \item Cực Base (B): Nối trực tiếp xuống đất (do $C_{C2}$ ngắn mạch).
+    \item Cực Collector (C): Có nguồn dòng phụ thuộc $\alpha i_e$ hướng từ C sang B (với PNP) và điện trở $R_C$ nối xuống đất.
+    \item Ngõ ra ($v_o$): Lấy tại cực C.
+\end{itemize}
+
+\subsection*{c) Tính tỉ số độ lợi áp $A_v = v_o / v_i$ (Không tải)}
+
+Trước hết, tính điện trở phát động $r_e$:
+
+$$r_e = \frac{V_T}{I_E} = \frac{26 \text{ mV}}{0.933 \text{ mA}} \approx 27.87 \Omega$$
+
+Trong mạch Base chung, điện áp ngõ vào đặt vào cực E: $v_i = v_e$.
+
+Dòng tín hiệu nhỏ tại cực phát là $i_e = \frac{v_i}{r_e}$ (chạy từ E vào).
+
+Dòng tại cực thu là $i_c = \alpha i_e$.
+
+Điện áp ngõ ra tại cực C (không tải $R_L$):
+
+$$v_o = i_c \cdot R_C = (\alpha \frac{v_i}{r_e}) \cdot R_C$$
+
+Độ lợi áp:
+
+$$A_v = \frac{v_o}{v_i} = \frac{\alpha \cdot R_C}{r_e} = \frac{0.99 \times 5000}{27.87} \approx \mathbf{177.6}$$
+
+(Lưu ý: Mạch Base chung không đảo pha nên $A_v$ mang dấu dương).
+
+\subsection*{d) Tính lại $A_v$ khi gắn thêm tải $R_L = 17$ k$\Omega$}
+
+Khi gắn thêm tải $R_L$ qua tụ $C_{C2}$ (lúc này $C_{C2}$ ngắn mạch AC), điện trở tương đương tại cực thu sẽ là $R_C$ mắc song song với $R_L$.
+
+\textbf{Tính điện trở tải tương đương ($R_C'$):}
+
+$$R_C' = R_C \parallel R_L = \frac{5 \times 17}{5 + 17} = \frac{85}{22} \approx 3.864 \text{ k}\Omega$$
+
+\textbf{Tính độ lợi áp mới:}
+
+$$A_v = \frac{\alpha \cdot R_C'}{r_e} = \frac{0.99 \times 3864}{27.87} \approx \mathbf{137.3}$$
+
+\subsection*{Kết quả tổng hợp:}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Thông số} & \textbf{Giá trị} \\
+\midrule
+$I_C$ (DC) & $0.924$ mA \\
+$A_v$ (Không tải) & $177.6$ \\
+$A_v$ (Có tải $17$k) & $137.3$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

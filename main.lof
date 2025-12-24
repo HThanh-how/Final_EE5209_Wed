@@ -1,0 +1,32 @@
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Filter frequency response characteristics}}{11}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces First-order active HPF: $f_c=1/(2\pi RC)$, $A_v=1+R_f/R_g$}}{12}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Sallen-Key high-pass filter topology}}{12}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces 2nd-order Sallen-Key HPF (Butterworth), $R_A=R_B=R$, $C_A=C_B=C$}}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Độ dốc đặc trưng: -20/-40/-120 dB/dec ứng với 1/2/3 stage}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Cascaded Sallen-Key high-pass filter (six-pole): three two-pole stages}}{14}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Bode plot for stability analysis}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Sallen-Key HPF (Butterworth) with example component values}}{17}{figure.caption.14}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Cascaded six-pole active high-pass filter schematic (implementation view)}}{20}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Final active high-pass filter circuit design}}{20}{figure.caption.17}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Simulated magnitude response}}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Simulated phase response}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Input referred noise analysis}}{23}{figure.caption.22}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces PCB Component Placement}}{26}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Test Setup Diagram}}{27}{figure.caption.27}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Measured vs simulated frequency response}}{28}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Measured vs simulated phase response}}{29}{figure.caption.29}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Slew rate measurement results}}{30}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Temperature dependence of cut-off frequency}}{31}{figure.caption.34}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Measured input referred noise}}{31}{figure.caption.35}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

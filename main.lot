@@ -1,0 +1,38 @@
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Design Specifications}}{9}{table.caption.2}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Typical OpAmp Parameters}}{12}{table.caption.5}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Butterworth design factors for cascaded sections}}{13}{table.caption.7}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Typical Component Tolerances}}{15}{table.caption.11}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces Component ratios for 2nd-order Sallen-Key HPF (Butterworth)}}{16}{table.caption.13}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces LM741 OpAmp Specifications}}{18}{table.caption.15}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Calculated Design Parameters}}{20}{table.caption.18}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Monte Carlo Analysis Results}}{23}{table.caption.21}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Simulation Results Summary}}{24}{table.caption.23}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces PCB Design Specifications}}{25}{table.caption.24}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Test Equipment}}{27}{table.caption.26}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Performance Comparison}}{29}{table.caption.30}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Correlation summary}}{30}{table.caption.31}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Harmonic Distortion Analysis}}{30}{table.caption.32}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Final Performance Summary}}{33}{table.caption.36}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Frequency Response Measurements}}{44}{table.caption.37}%
+\contentsline {table}{\numberline {C.2}{\ignorespaces THD measurements}}{44}{table.caption.38}%
+\contentsline {table}{\numberline {C.3}{\ignorespaces Temperature Dependence Measurements}}{45}{table.caption.39}%
+\contentsline {table}{\numberline {C.4}{\ignorespaces Input Referred Noise Measurements}}{45}{table.caption.40}%
+\contentsline {table}{\numberline {C.5}{\ignorespaces Total Integrated Noise}}{45}{table.caption.41}%
+\contentsline {table}{\numberline {C.6}{\ignorespaces Slew Rate Measurement Data}}{46}{table.caption.42}%
+\contentsline {table}{\numberline {C.7}{\ignorespaces Power Supply Current Measurements}}{46}{table.caption.43}%
+\contentsline {table}{\numberline {C.8}{\ignorespaces PSRR summary}}{46}{table.caption.44}%
+\contentsline {table}{\numberline {C.9}{\ignorespaces Measurement Repeatability (10 samples)}}{46}{table.caption.45}%
+\contentsline {table}{\numberline {C.10}{\ignorespaces Measurement Uncertainty Analysis}}{47}{table.caption.46}%
+\contentsline {table}{\numberline {C.11}{\ignorespaces Test Equipment Calibration Status}}{47}{table.caption.47}%
