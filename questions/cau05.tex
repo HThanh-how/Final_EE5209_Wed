@@ -1,0 +1,118 @@
+\section*{Câu 5}
+
+\subsection*{Thông tin đã cho:}
+
+\begin{itemize}
+    \item Mạch điện như Hình 5 sử dụng 2 Op-Amp lý tưởng.
+    \item Giá trị $@ = 7$.
+    \item Biểu thức ngõ ra mong muốn: $v_{out} = 2@(v_{i2} - v_{i1}) = 2 \cdot 7 \cdot (v_{i2} - v_{i1}) = 14(v_{i2} - v_{i1})$.
+\end{itemize}
+
+\subsection*{a) Tìm giá trị các điện trở cho mạch Hình 5}
+
+\textbf{1. Phân tích mạch điện Hình 5:}
+
+Mạch gồm hai tầng khuếch đại nối tiếp:
+
+\textbf{Tầng 1 (Op-Amp bên trái):} Đây là mạch khuếch đại không đảo (Non-inverting amplifier) với tín hiệu vào $v_{i1}$. Điện áp ngõ ra của tầng này, gọi là $v_{o1}$, được tính theo công thức:
+
+$$v_{o1} = \left( 1 + \frac{R_2}{R_1} \right) v_{i1}$$
+
+\textbf{Tầng 2 (Op-Amp bên phải):} Đây là mạch khuếch đại sai biệt (Differential amplifier) với hai tín hiệu vào là $v_{o1}$ (vào chân đảo qua $R_3$) và $v_{i2}$ (vào chân không đảo trực tiếp). Điện áp ngõ ra cuối cùng $v_{out}$ được tính bằng nguyên lý xếp chồng:
+
+\begin{itemize}
+    \item Khi $v_{i2} = 0$, mạch là khuếch đại đảo với ngõ vào $v_{o1}$: $v_{out}' = -\frac{R_4}{R_3}v_{o1}$.
+    \item Khi $v_{o1} = 0$, mạch là khuếch đại không đảo với ngõ vào $v_{i2}$: $v_{out}'' = \left( 1 + \frac{R_4}{R_3} \right) v_{i2}$.
+\end{itemize}
+
+Tổng hợp lại:
+
+$$v_{out} = v_{out}'' + v_{out}' = \left( 1 + \frac{R_4}{R_3} \right) v_{i2} - \frac{R_4}{R_3}v_{o1}$$
+
+\textbf{2. Thiết lập phương trình:}
+
+Thay biểu thức của $v_{o1}$ từ Tầng 1 vào phương trình của $v_{out}$ từ Tầng 2:
+
+$$v_{out} = \left( 1 + \frac{R_4}{R_3} \right) v_{i2} - \frac{R_4}{R_3} \left[ \left( 1 + \frac{R_2}{R_1} \right) v_{i1} \right]$$
+
+$$v_{out} = \left( 1 + \frac{R_4}{R_3} \right) v_{i2} - \left[ \frac{R_4}{R_3} \left( 1 + \frac{R_2}{R_1} \right) \right] v_{i1}$$
+
+\textbf{3. So sánh và tính toán:}
+
+So sánh biểu thức vừa tìm được với biểu thức mong muốn $v_{out} = 14v_{i2} - 14v_{i1}$, ta có hệ phương trình:
+
+\begin{itemize}
+    \item Hệ số của $v_{i2}$: $1 + \frac{R_4}{R_3} = 14 \Rightarrow \frac{R_4}{R_3} = 13$.
+    \item Hệ số của $v_{i1}$: $\frac{R_4}{R_3} \left( 1 + \frac{R_2}{R_1} \right) = 14$.
+\end{itemize}
+
+Thay (1) vào (2):
+
+$$13 \left( 1 + \frac{R_2}{R_1} \right) = 14 \Rightarrow 1 + \frac{R_2}{R_1} = \frac{14}{13} \Rightarrow \frac{R_2}{R_1} = \frac{14}{13} - 1 = \frac{1}{13}$$
+
+\textbf{4. Chọn giá trị điện trở:}
+
+Ta có các tỉ số: $\frac{R_4}{R_3} = 13$ và $\frac{R_1}{R_2} = 13$. Có thể chọn các giá trị điện trở trong dải k$\Omega$ thông dụng:
+
+\begin{itemize}
+    \item Chọn $R_3 = 10 \text{ k}\Omega \Rightarrow R_4 = 13 \cdot 10 \text{ k}\Omega = 130 \text{ k}\Omega$.
+    \item Chọn $R_2 = 10 \text{ k}\Omega \Rightarrow R_1 = 13 \cdot 10 \text{ k}\Omega = 130 \text{ k}\Omega$.
+\end{itemize}
+
+\textbf{Kết quả câu a:}
+
+Một bộ giá trị thích hợp là: $R_1 = 130 \text{ k}\Omega, R_2 = 10 \text{ k}\Omega, R_3 = 10 \text{ k}\Omega, R_4 = 130 \text{ k}\Omega$.
+
+\subsection*{b) Thiết kế lại mạch dùng 1 Op-Amp}
+
+Yêu cầu là thiết kế mạch dùng 1 Op-Amp để thực hiện chức năng $v_{out} = 14(v_{i2} - v_{i1})$. Đây là chức năng của một mạch khuếch đại sai biệt (Difference Amplifier) chuẩn.
+
+\textbf{1. Sơ đồ mạch khuếch đại sai biệt chuẩn:}
+
+Mạch sử dụng 4 điện trở, gọi là $R_a, R_b, R_c, R_d$.
+
+\begin{itemize}
+    \item Tín hiệu $v_{i1}$ nối qua $R_a$ vào chân đảo (-).
+    \item Điện trở hồi tiếp $R_b$ nối từ chân đảo (-) ra ngõ ra $v_{out}$.
+    \item Tín hiệu $v_{i2}$ nối qua $R_c$ vào chân không đảo (+).
+    \item Điện trở $R_d$ nối từ chân không đảo (+) xuống đất.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/differential_amplifier_1opamp.png}
+\caption{Sơ đồ mạch khuếch đại sai biệt dùng 1 Op-Amp với $A_d = 14$}
+\label{fig:diff_amp_1opamp}
+\end{figure}
+
+Công thức ngõ ra tổng quát là:
+
+$$v_{out} = \frac{R_d}{R_c + R_d} \left( 1 + \frac{R_b}{R_a} \right) v_{i2} - \frac{R_b}{R_a}v_{i1}$$
+
+\textbf{2. Điều kiện cân bằng:}
+
+Để mạch chỉ khuếch đại hiệu số hai tín hiệu vào ($v_{out} = A_d(v_{i2} - v_{i1})$), ta cần điều kiện cân bằng cầu điện trở:
+
+$$\frac{R_b}{R_a} = \frac{R_d}{R_c}$$
+
+Khi đó, công thức rút gọn thành:
+
+$$v_{out} = \frac{R_b}{R_a}(v_{i2} - v_{i1})$$
+
+\textbf{3. Tính toán giá trị điện trở:}
+
+Ta cần độ lợi sai biệt $A_d = 14$. Do đó:
+
+$$\frac{R_b}{R_a} = 14 \quad \text{và} \quad \frac{R_d}{R_c} = 14$$
+
+\textbf{Chọn các giá trị điện trở:}
+
+\begin{itemize}
+    \item Chọn $R_a = R_c = 10 \text{ k}\Omega$.
+    \item Suy ra $R_b = R_d = 14 \cdot 10 \text{ k}\Omega = 140 \text{ k}\Omega$.
+\end{itemize}
+
+\textbf{Kết quả câu b:}
+
+Thiết kế mạch khuếch đại sai biệt với 4 điện trở: $R_a = 10 \text{ k}\Omega$ (nối $v_{i1}$), $R_b = 140 \text{ k}\Omega$ (hồi tiếp), $R_c = 10 \text{ k}\Omega$ (nối $v_{i2}$), $R_d = 140 \text{ k}\Omega$ (nối đất).
+
