@@ -42,8 +42,8 @@ jobs:
       - name: Rename PDF
         run: |
           if [ -f main.pdf ]; then
-            mv main.pdf "DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
-            echo "PDF renamed to DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
+            mv main.pdf "DapAn_251_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
+            echo "PDF renamed to DapAn_251_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
           else
             echo "Error: main.pdf not found"
             exit 1
@@ -53,13 +53,13 @@ jobs:
         if: always()
         run: |
           ls -la
-          echo "PDF exists?"; [ -f DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf ] && echo yes || echo no
+          echo "PDF exists?"; [ -f DapAn_251_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf ] && echo yes || echo no
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dap-an-kiem-tra-ee5209-pdf
-          path: DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
+          path: DapAn_251_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
 
       - name: Upload logs (always)
         if: always()
@@ -107,4 +107,6 @@ jobs:
             
             ${{ steps.changelog.outputs.changelog }}
           generate_release_notes: false
-          files: dist/DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
+          files: |
+            dist/DapAn_251_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
+            251_PTTKMDT_05112025_BAIKIEMTRA.pdf
