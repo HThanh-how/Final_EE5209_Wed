@@ -1,0 +1,139 @@
+\section*{Câu 4}
+
+\subsection*{Thông số mạch điện:}
+
+Dựa vào Hình 4 và quy tắc $@ = 7$ bạn đã cung cấp:
+
+\begin{itemize}
+    \item Op-Amp lý tưởng.
+    \item $R_1 = 20 \text{ k}\Omega$.
+    \item $R_2 = 56 \text{ k}\Omega$.
+    \item $R_3 = 10 \text{ k}\Omega$.
+    \item $R_4 = 3@ \text{ k}\Omega = 37 \text{ k}\Omega$.
+\end{itemize}
+
+\subsection*{a) Xác định điện áp ngõ ra $v_O$}
+
+Trường hợp: $v_{I1} = 1 \text{ V}$ và $v_{I2} = -1 \text{ V}$.
+
+Đây là mạch khuếch đại sai biệt (differential amplifier). Điện áp ngõ ra $v_O$ được tính theo công thức tổng quát:
+
+$$v_O = \left( \frac{R_4}{R_3 + R_4} \right) \left( 1 + \frac{R_2}{R_1} \right) v_{I2} - \left( \frac{R_2}{R_1} \right) v_{I1}$$
+
+\textbf{Thay các giá trị điện trở vào công thức:}
+
+Tỉ số $\frac{R_2}{R_1} = \frac{56}{20} = 2.8$.
+
+Hệ số phân áp tại ngõ vào không đảo: $\frac{R_4}{R_3 + R_4} = \frac{37}{10 + 37} = \frac{37}{47}$.
+
+\textbf{Thay các giá trị điện áp ngõ vào $v_{I1}, v_{I2}$:}
+
+$$v_O = \left( \frac{37}{47} \right) (1 + 2.8) (-1) - (2.8) (1)$$
+
+$$v_O = \left( \frac{37}{47} \right) (3.8) (-1) - 2.8$$
+
+$$v_O \approx (0.7872) (3.8) (-1) - 2.8$$
+
+$$v_O \approx -2.991 - 2.8 = -5.791 \text{ V}$$
+
+Kết quả: $v_O \approx \mathbf{-5.79 \text{ V}}$.
+
+\subsection*{b) Xác định tỉ số độ lợi cách chung $A_{cm}$}
+
+Trường hợp: $v_{I1} = v_{I2} = v_I$ (tín hiệu cách chung).
+
+Tỉ số độ lợi cách chung là $A_{cm} = \frac{v_O}{v_I}$.
+
+Thay $v_{I1} = v_{I2} = v_I$ vào công thức tổng quát của $v_O$:
+
+$$v_O = \left[ \left( \frac{R_4}{R_3 + R_4} \right) \left( 1 + \frac{R_2}{R_1} \right) - \frac{R_2}{R_1} \right] v_I$$
+
+Từ đó, ta có biểu thức cho $A_{cm}$:
+
+$$A_{cm} = \left( \frac{R_4}{R_3 + R_4} \right) \left( 1 + \frac{R_2}{R_1} \right) - \frac{R_2}{R_1}$$
+
+\textbf{Thay số:}
+
+$$A_{cm} = \left( \frac{37}{47} \right) (3.8) - 2.8$$
+
+$$A_{cm} = \frac{140.6}{47} - 2.8 \approx 2.9915 - 2.8 = 0.1915$$
+
+Để chính xác hơn, ta dùng phân số:
+
+$$A_{cm} = \frac{37}{47} \cdot \frac{19}{5} - \frac{14}{5} = \frac{703}{235} - \frac{658}{235} = \frac{45}{235} = \frac{9}{47}$$
+
+$$A_{cm} = \frac{9}{47} \approx 0.191$$
+
+Kết quả: $A_{cm} = \frac{9}{47} \approx \mathbf{0.191}$.
+
+\subsection*{c) Tính tỉ số loại bỏ chế độ cùng pha CMRR}
+
+Công thức: $\text{CMRR} = |A_d / A_{cm}|$.
+
+Trước hết, ta cần tính độ lợi sai biệt $A_d$. Từ định nghĩa $v_O = A_d(v_{I2} - v_{I1}) + A_{cm}(v_{I1} + v_{I2})/2$, ta có thể suy ra:
+
+$$A_d = \frac{1}{2} \left[ \left( \frac{R_4}{R_3 + R_4} \right) \left( 1 + \frac{R_2}{R_1} \right) + \frac{R_2}{R_1} \right]$$
+
+\textbf{Thay số:}
+
+$$A_d = \frac{1}{2} \left[ \left( \frac{37}{47} \right) (3.8) + 2.8 \right]$$
+
+$$A_d = \frac{1}{2} [ 2.9915 + 2.8 ] = \frac{1}{2} [ 5.7915 ] = 2.89575$$
+
+Sử dụng phân số để tính chính xác:
+
+$$A_d = \frac{1}{2} \left( \frac{703}{235} + \frac{658}{235} \right) = \frac{1}{2} \left( \frac{1361}{235} \right) = \frac{1361}{470}$$
+
+Bây giờ tính CMRR:
+
+$$\text{CMRR} = \frac{|A_d|}{|A_{cm}|} = \frac{1361/470}{9/47} = \frac{1361}{470} \cdot \frac{47}{9} = \frac{1361}{90}$$
+
+$$\text{CMRR} \approx 15.12$$
+
+Kết quả: $\text{CMRR} = \frac{1361}{90} \approx \mathbf{15.1}$.
+
+\subsection*{d) Sửa đổi mạch để có $v_O = A_d(v_{I2} - v_{I1})$}
+
+Để ngõ ra chỉ phụ thuộc vào hiệu điện thế hai ngõ vào ($A_{cm} = 0$), mạch cầu điện trở phải cân bằng. Điều kiện cân bằng là:
+
+$$\frac{R_1}{R_2} = \frac{R_3}{R_4} \quad \text{hay} \quad R_1 R_4 = R_2 R_3$$
+
+Kiểm tra với giá trị hiện tại: $20 \cdot 37 = 740$ và $56 \cdot 10 = 560$. Mạch chưa cân bằng.
+
+\textbf{Giải pháp sử dụng thêm 1 điện trở $R_5$:}
+
+Ta có thể mắc thêm $R_5$ nối tiếp với $R_3$ để tăng giá trị nhánh này, sao cho đẳng thức được thỏa mãn.
+
+Gọi $R_{3\_mới} = R_3 + R_5$. Điều kiện cân bằng mới là:
+
+$$R_1 R_4 = R_2 (R_3 + R_5)$$
+
+\textbf{Tính giá trị $R_5$:}
+
+$$20 \text{ k}\Omega \cdot 37 \text{ k}\Omega = 56 \text{ k}\Omega \cdot (10 \text{ k}\Omega + R_5)$$
+
+$$740 = 56 (10 + R_5)$$
+
+$$10 + R_5 = \frac{740}{56} = \frac{185}{14}$$
+
+$$R_5 = \frac{185}{14} - 10 = \frac{185 - 140}{14} = \frac{45}{14} \text{ k}\Omega$$
+
+$$R_5 \approx 3.214 \text{ k}\Omega$$
+
+\textbf{Sơ đồ mạch mới:}
+
+Mắc thêm điện trở $R_5 = 3.21 \text{ k}\Omega$ nối tiếp với điện trở $R_3$ tại ngõ vào $v_{I2}$.
+
+\textbf{Độ lợi áp $A_d$ trong trường hợp này:}
+
+Khi mạch cân bằng ($\frac{R_1}{R_2} = \frac{R_{3\_mới}}{R_4}$), độ lợi sai biệt được tính đơn giản là:
+
+$$A_d = \frac{R_2}{R_1} = \frac{56}{20} = 2.8$$
+
+\textbf{Kết quả:}
+\begin{itemize}
+    \item Mạch: Mắc nối tiếp $R_5$ với $R_3$.
+    \item Giá trị: $R_5 = \frac{45}{14} \text{ k}\Omega \approx \mathbf{3.21 \text{ k}\Omega}$.
+    \item Độ lợi $A_d$ mới: $A_d = \mathbf{2.8}$.
+\end{itemize}
+
