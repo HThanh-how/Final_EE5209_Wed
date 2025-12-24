@@ -78,16 +78,18 @@ jobs:
         id: changelog
         run: |
           git fetch --tags --force
-          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          if [ -z "$LAST_TAG" ]; then
-            CHANGELOG=$(git log --oneline --pretty=format:"- %s (%h)" -20)
+          LAST_RELEASE_TAG=$(git tag -l "build-*" --sort=-version:refname | head -n 1)
+          if [ -z "$LAST_RELEASE_TAG" ]; then
+            CHANGELOG=$(git log --oneline --pretty=format:"- %s (%h)" --no-merges)
             if [ -z "$CHANGELOG" ]; then
               CHANGELOG="- Initial build"
             fi
           else
-            CHANGELOG=$(git log ${LAST_TAG}..HEAD --oneline --pretty=format:"- %s (%h)" 2>/dev/null || echo "")
-            if [ -z "$CHANGELOG" ]; then
-              CHANGELOG="- No changes since last build"
+            COMMIT_COUNT=$(git rev-list ${LAST_RELEASE_TAG}..HEAD --count 2>/dev/null || echo "0")
+            if [ "$COMMIT_COUNT" -eq "0" ]; then
+              CHANGELOG="- No changes since last build ($LAST_RELEASE_TAG)"
+            else
+              CHANGELOG=$(git log ${LAST_RELEASE_TAG}..HEAD --oneline --pretty=format:"- %s (%h)" --no-merges)
             fi
           fi
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
