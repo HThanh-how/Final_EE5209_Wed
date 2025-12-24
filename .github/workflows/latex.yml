@@ -1,4 +1,4 @@
-name: Build LaTeX PDF
+name: ĐÁP ÁN BÀI KIỂM TRA MÔN PHÂN TÍCH THIẾT KẾ MẠCH ĐIỆN TỬ EE5209
 
 on:
   push:
@@ -46,14 +46,14 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ee5209-report-pdf
+          name: dap-an-kiem-tra-ee5209-pdf
           path: main.pdf
 
       - name: Upload logs (always)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ee5209-report-logs
+          name: dap-an-kiem-tra-ee5209-logs
           path: |
             main.log
             main.bcf*
@@ -72,12 +72,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: ee5209-report-pdf
+          name: dap-an-kiem-tra-ee5209-pdf
           path: dist
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          name: Automated Build ${{ github.run_number }}
+          name: ĐÁP ÁN BÀI KIỂM TRA EE5209 - Build ${{ github.run_number }}
           generate_release_notes: true
           files: dist/main.pdf
