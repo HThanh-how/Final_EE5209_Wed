@@ -81,14 +81,8 @@ jobs:
           LAST_BUILD_TAG=$(git tag -l "build-*" --sort=-version:refname | head -n 1)
           if [ -z "$LAST_BUILD_TAG" ]; then
             CHANGELOG=$(git log --oneline --pretty=format:"- %s (%h)" --no-merges)
-            if [ -z "$CHANGELOG" ]; then
-              CHANGELOG="- Initial build"
-            fi
           else
-            CHANGELOG=$(git log ${LAST_BUILD_TAG}..HEAD --oneline --pretty=format:"- %s (%h)" --no-merges 2>/dev/null || echo "")
-            if [ -z "$CHANGELOG" ]; then
-              CHANGELOG="- No changes since last build ($LAST_BUILD_TAG)"
-            fi
+            CHANGELOG=$(git log ${LAST_BUILD_TAG}..HEAD --oneline --pretty=format:"- %s (%h)" --no-merges)
           fi
           echo "changelog<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGELOG" >> $GITHUB_OUTPUT
