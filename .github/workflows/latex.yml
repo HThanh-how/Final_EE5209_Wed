@@ -24,18 +24,20 @@ jobs:
           uname -a
           which xelatex || true
           which latexmk || true
-          which biber || true
           tlmgr --version || true
+
+      - name: Clean old build files
+        run: |
+          rm -f main.aux main.bbl main.bcf main.blg main.run.xml main.out main.toc main.lof main.lot || true
 
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           latexmk_use_xelatex: true
-          latexmk_use_biber: true
-          latexmk_shell_escape: true
-          extra_system_packages: biber
-          pre_compile: tlmgr update --self && tlmgr install biblatex biber biblatex-ieee csquotes siunitx circuitikz lm pgfplots babel-english fontspec
+          latexmk_use_biber: false
+          latexmk_shell_escape: false
+          pre_compile: tlmgr update --self && tlmgr install siunitx lm pgfplots babel-english fontspec
 
       - name: List workspace files
         if: always()
@@ -56,8 +58,6 @@ jobs:
           name: dap-an-kiem-tra-ee5209-logs
           path: |
             main.log
-            main.bcf*
-            main.bbl*
             main.fls
             main.fdb_latexmk
 
