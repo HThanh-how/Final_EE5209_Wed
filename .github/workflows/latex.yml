@@ -74,10 +74,26 @@ jobs:
         with:
           name: dap-an-kiem-tra-ee5209-pdf
           path: dist
+      - name: Get changelog from last successful build
+        id: changelog
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -z "$LAST_TAG" ]; then
+            CHANGELOG=$(git log --oneline --pretty=format:"- %s" -10)
+          else
+            CHANGELOG=$(git log ${LAST_TAG}..HEAD --oneline --pretty=format:"- %s" || git log --oneline --pretty=format:"- %s" -10)
+          fi
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
           name: ĐÁP ÁN BÀI KIỂM TRA EE5209 - Build ${{ github.run_number }}
-          generate_release_notes: true
+          body: |
+            ## Thay đổi từ lần build thành công gần nhất
+            
+            ${{ steps.changelog.outputs.changelog }}
+          generate_release_notes: false
           files: dist/main.pdf
