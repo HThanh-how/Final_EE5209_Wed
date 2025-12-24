@@ -92,7 +92,7 @@ jobs:
           tag_name: build-${{ github.run_number }}
           name: ĐÁP ÁN BÀI KIỂM TRA EE5209 - Build ${{ github.run_number }}
           body: |
-            ## Thay đổi từ lần build thành công gần nhất
+            ## Changelog
             
             ${{ steps.changelog.outputs.changelog }}
           generate_release_notes: false
