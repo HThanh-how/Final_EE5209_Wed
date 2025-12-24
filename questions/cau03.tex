@@ -1,0 +1,82 @@
+\section*{Câu 3}
+
+\subsection*{a) Vẽ dạng sóng áp ngõ ra $v_{out}$}
+
+Đây là một mạch ghim áp (voltage clipper circuit) song song, sử dụng hai diode để giới hạn biên độ của tín hiệu ngõ vào cả ở phần dương và phần âm.
+
+\textbf{Phân tích mạch:}
+
+Điện áp ngõ ra $v_{out}$ là điện áp tại điểm A so với đất.
+
+Mạch có hai nhánh song song nối từ điểm A xuống đất.
+
+\begin{itemize}
+    \item \textbf{Nhánh 1 (D1):} Gồm diode D1 và nguồn DC 5V. Anode của D1 nối với điểm A, cathode nối với cực dương nguồn 5V (cực âm nguồn nối đất).
+    \item \textbf{Nhánh 2 (D2):} Gồm diode D2 và nguồn DC 5V. Cathode của D2 nối với điểm A, anode nối với cực âm nguồn 5V (cực dương nguồn nối đất).
+\end{itemize}
+
+\textbf{Xét điều kiện dẫn của các diode:}
+
+\textbf{Diode D1 dẫn:} Khi điện áp tại anode (điểm A) lớn hơn điện áp tại cathode một lượng $V_D$.
+
+$$v_{out} > 5 \text{ V} + V_D$$
+
+$$v_{out} > 5 \text{ V} + 0.67 \text{ V} = 5.67 \text{ V}$$
+
+Khi D1 dẫn, nó sẽ ghim điện áp ngõ ra ở mức $v_{out} = 5.67$ V. Điện trở $R_1$ sẽ hạn chế dòng điện từ nguồn $V_{in}$. Điều này xảy ra khi $v_{in}$ đủ lớn để làm $v_{out}$ vượt qua 5.67 V.
+
+\textbf{Diode D2 dẫn:} Khi điện áp tại anode (cực âm nguồn 5V, tức -5V) lớn hơn điện áp tại cathode (điểm A) một lượng $V_D$.
+
+$$-5 \text{ V} > v_{out} + V_D$$
+
+$$v_{out} < -5 \text{ V} - V_D$$
+
+$$v_{out} < -5 \text{ V} - 0.67 \text{ V} = -5.67 \text{ V}$$
+
+Khi D2 dẫn, nó sẽ ghim điện áp ngõ ra ở mức $v_{out} = -5.67$ V. Điều này xảy ra khi $v_{in}$ đủ nhỏ (âm) để làm $v_{out}$ giảm xuống dưới -5.67 V.
+
+\textbf{Cả D1 và D2 đều không dẫn:} Khi điện áp $v_{out}$ nằm trong khoảng giữa hai mức ghim.
+
+$$-5.67 \text{ V} \le v_{out} \le 5.67 \text{ V}$$
+
+Trong trường hợp này, không có dòng điện qua $R_1$ (vì không có đường dẫn xuống đất), do đó điện áp ngõ ra sẽ bằng điện áp ngõ vào: $v_{out} = v_{in}$.
+
+\textbf{Kết luận về dạng sóng $v_{out}$:}
+
+\begin{itemize}
+    \item Nếu $v_{in} > 5.67$ V, thì $v_{out} = 5.67$ V.
+    \item Nếu $v_{in} < -5.67$ V, thì $v_{out} = -5.67$ V.
+    \item Nếu $-5.67 \text{ V} \le v_{in} \le 5.67$ V, thì $v_{out} = v_{in}$.
+\end{itemize}
+
+Dạng sóng ngõ ra sẽ là một sóng sin bị cắt đỉnh ở mức +5.67 V và cắt đáy ở mức -5.67 V. Dưới đây là hình ảnh minh họa dạng sóng này.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{images/voltage_clipper_waveform.png}
+\caption{Dạng sóng điện áp ngõ vào ($v_{in}$) và ngõ ra ($v_{out}$) của mạch ghim áp}
+\label{fig:clipper_waveform}
+\end{figure}
+
+\subsection*{b) Viết biểu thức và vẽ đặc tuyến áp vào ra của mạch}
+
+\textbf{Biểu thức đặc tuyến áp vào ra ($v_{out}$ theo $v_{in}$):}
+
+Dựa trên kết quả phân tích ở câu a), ta có biểu thức mô tả mối quan hệ giữa điện áp ngõ vào và ngõ ra như sau:
+
+$$v_{out} = \begin{cases} 
+5.67 \text{ V} & \text{khi } v_{in} > 5.67 \text{ V} \\ 
+v_{in} & \text{khi } -5.67 \text{ V} \le v_{in} \le 5.67 \text{ V} \\ 
+-5.67 \text{ V} & \text{khi } v_{in} < -5.67 \text{ V} 
+\end{cases}$$
+
+\textbf{Vẽ đặc tuyến áp vào ra:}
+
+Đặc tuyến này là một đồ thị với trục hoành là $v_{in}$ và trục tung là $v_{out}$.
+
+\begin{itemize}
+    \item Trong khoảng $v_{in}$ từ -5.67 V đến +5.67 V, đặc tuyến là một đoạn thẳng đi qua gốc tọa độ với độ dốc bằng 1 ($v_{out} = v_{in}$).
+    \item Khi $v_{in} > 5.67$ V, đặc tuyến là một đường thẳng nằm ngang tại mức $v_{out} = 5.67$ V.
+    \item Khi $v_{in} < -5.67$ V, đặc tuyến là một đường thẳng nằm ngang tại mức $v_{out} = -5.67$ V.
+\end{itemize}
+
