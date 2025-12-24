@@ -39,17 +39,27 @@ jobs:
           latexmk_shell_escape: false
           pre_compile: tlmgr update --self && tlmgr install siunitx lm pgfplots babel-english fontspec
 
+      - name: Rename PDF
+        run: |
+          if [ -f main.pdf ]; then
+            mv main.pdf "DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
+            echo "PDF renamed to DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf"
+          else
+            echo "Error: main.pdf not found"
+            exit 1
+          fi
+
       - name: List workspace files
         if: always()
         run: |
           ls -la
-          echo "Report exists?"; [ -f main.pdf ] && echo yes || echo no
+          echo "PDF exists?"; [ -f DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf ] && echo yes || echo no
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dap-an-kiem-tra-ee5209-pdf
-          path: main.pdf
+          path: DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
 
       - name: Upload logs (always)
         if: always()
@@ -97,4 +107,4 @@ jobs:
             
             ${{ steps.changelog.outputs.changelog }}
           generate_release_notes: false
-          files: dist/main.pdf
+          files: dist/DapAn_BaiKiemTra_PhanTichThietKeMachDienTu_EE5209.pdf
